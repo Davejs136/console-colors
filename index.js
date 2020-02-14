@@ -73,16 +73,14 @@ function comprobate(color) {
   }
 }
 
-class Colors {
-  print(color, message, optional) {
-    const final = comprobate(color)
-    if (!final) {
-      throw new Error(`Error!: color "${color}" doesn't exist`)
-    } 
+print(color, message, optional) {
+  const final = comprobate(color)
+  if (!final) {
+    throw new Error(`Error!: color "${color}" doesn't exist`)
+  } 
 
-    // The code after %s reset the color
-    console.log(`${final}%s${reset}`, message, optional)
-  }
+  // The code after %s reset the color
+  console.log(`${final}%s${reset}`, message, optional)
 }
 
-module.exports = Colors
+module.exports = print
