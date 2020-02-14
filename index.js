@@ -73,7 +73,7 @@ function comprobate(color) {
   }
 }
 
-print(color, message, optional) {
+function print(color, message, optional) {
   const final = comprobate(color)
   if (!final) {
     throw new Error(`Error!: color "${color}" doesn't exist`)
