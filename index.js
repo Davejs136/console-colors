@@ -83,4 +83,4 @@ function print(color, message, optional) {
   console.log(`${final}%s${reset}`, message, optional)
 }
 
-module.exports = print
+module.exports = { print }
