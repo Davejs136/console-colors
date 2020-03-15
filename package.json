@@ -2,7 +2,7 @@
   "name": "console-colors",
   "version": "0.0.1",
   "description": "A simple package to print color in the console",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "babel src --out-dir dist",
     "dev": "nodemon src/index.js --exec babel-node",
