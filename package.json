@@ -1,12 +1,25 @@
 {
   "name": "console-colors",
   "version": "0.0.1",
-  "description": "A small code to add color in the console",
+  "description": "A simple package to print color in the console",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src --out-dir dist",
+    "dev": "nodemon src/index.js --exec babel-node",
+    "start": "nodemon dist/index.js",
+    "prepare": "NODE_ENV=production npm run build"
   },
   "keywords": ["color", "consola", "print", "ANSII"],
   "author": "",
-  "license": "ISC"
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.8.7"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.8.7",
+    "babel-node": "0.0.1-security"
+  }
 }
