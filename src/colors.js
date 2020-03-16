@@ -66,7 +66,8 @@ function add(name, code) {
  */
 function getColor(colors) {
   return colors.map(color =>
-    check(color) ? allColors[color] : allColors.reset
+    // If the color doesnt exist then is a variable
+    check(color) ? allColors[color] : color
   );
 }
 
