@@ -4,22 +4,18 @@
   "description": "A simple package to print color in the console",
   "main": "dist/index.js",
   "scripts": {
-    "build": "babel src --out-dir dist",
-    "dev": "nodemon src/index.js --exec babel-node",
-    "start": "nodemon dist/index.js",
+    "start": "tsc && node dist/index.js",
+    "build": "tsc",
+    "dev": "concurrently \"tsc -w\" \"nodemon dist/index.js\"",
     "prepare": "NODE_ENV=production npm run build"
   },
   "keywords": ["color", "consola", "print", "ANSII"],
-  "author": "",
+  "author": "David Arenas <davejs136@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.7",
-    "@babel/node": "^7.8.7",
-    "@babel/preset-env": "^7.8.7"
-  },
-  "dependencies": {
-    "@babel/polyfill": "^7.8.7",
-    "babel-node": "0.0.1-security"
+    "@types/node": "^14.6.0",
+    "concurrently": "^4.1.2",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.3"
   }
 }
