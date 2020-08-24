@@ -1,4 +1,3 @@
-/** All colors availables. */
 const allColors = {
   black: '\x1b[30m',
   blue: '\x1b[34m',
@@ -20,7 +19,6 @@ const allColors = {
   lightYellow: '\x1b[1;33m'
 };
 
-/** Colors with its names. */
 const colors = {
   black: 'black',
   blue: 'blue',
@@ -43,11 +41,7 @@ const colors = {
   lightYellow: 'lightYellow'
 };
 
-/**
- * Add color in the global colors variable
- * @param {string} name - The color name
- * @param {string} code - The code color
- */
+
 function add(name, code) {
   const exist = check(name);
 
@@ -59,11 +53,7 @@ function add(name, code) {
   }
 }
 
-/**
- * Check and return the needed value
- * @param {string} color - The color name
- * @returns {string} The color on code format
- */
+
 function getColor(colors) {
   return colors.map(color =>
     // If the color doesnt exist then is a variable
@@ -71,11 +61,7 @@ function getColor(colors) {
   );
 }
 
-/**
- * Check if color exist
- * @param {string} name - The color name to check
- * @returns {boolean || string} if exist or not exist
- */
+
 function check(name) {
   return Object.keys(allColors).find(color => (color === name ? name : false));
 }
