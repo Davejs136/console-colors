@@ -22,6 +22,7 @@
 */
 
 import { colors } from "./colors";
+import { transform } from "./helpers";
 
 const regexToCheckDollarNotation = /\$[a-z]+/g;
 const regexToCheckBreackets = /{[a-z]+}/g;
@@ -52,23 +53,16 @@ function clearBrackets(entries: RegExpMatchArray | null): Array<string> | undefi
 function checkEntryType(entry: string): void {
   if (entry.match(regexToCheckBreackets)) {
     const result: RegExpMatchArray | null = entry.match(regexToCheckBreackets);
-    let finded = findColor(clearBrackets(result));
-    // result?.forEach((item, i) => item.replace())
+    let codes = findColor(clearBrackets(result));
+    
+    let final = transform({
+      result,
+      codes, 
+      content: entry
+    })
 
-    // let res = entry.split(" ").findIndex(result[0])
+    console.log(final.trim())
 
-    // let res = entry.split(" ").map((item, i) => {
-    //   return result?.map((res, i) => {
-    //     if (item === res) {
-    //       return finded[i]
-    //     } else {
-    //       return item
-    //     }
-    //   }).filter(item => item);
-    // });
-
-    console.log(finded);
-    // console.log(entry.replace(result[0], finded[0]));
   } else if (entry.match(regexToCheckDollarNotation)) {
     console.log('Use $[color]')
   } else {
@@ -77,8 +71,7 @@ function checkEntryType(entry: string): void {
 }
 
 function findColor(entries: Array<string> | undefined): (string | undefined)[] | undefined {
-  const ready = entries?.map((entry) => colors(entry));
-  return ready;
+  return entries?.map((entry) => colors(entry));
 }
 
 export function println(message: TemplateStringsArray): void {
