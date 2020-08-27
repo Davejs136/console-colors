@@ -74,7 +74,7 @@ function findColor(entries: Array<string> | undefined): (string | undefined)[] |
   return entries?.map((entry) => colors(entry));
 }
 
-export function println(message: TemplateStringsArray): void {
+export function println(message: TemplateStringsArray, ...args: any[]): void {
   checkEntryType(message.join(''));
 }
 

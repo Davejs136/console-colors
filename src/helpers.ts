@@ -6,15 +6,20 @@ interface IContent {
 
 export function transform(ctx: IContent): string {
   let { content, codes, result } = ctx;
-  // Divide the string and transform it into an array
-  const isolated: string[] = content.split(" ");
+  // Variable to save the current string
+  let output: string[] = [];
 
+  // Replacing all items of array in each iteration
   result?.forEach((item, i) => {
-    let index: number = isolated.findIndex(el => el === item)
-    isolated.splice(index, 1, codes[i])
+    let temp = content.replace(item, codes[i])
+
+    if (!output.length) {
+      output.push(temp)
+    } else {
+      output[0] = output[0].replace(item, codes[i]) 
+    }
+
   })
 
-  console.log(isolated)
-
-  return isolated.join(' ');
+  return output.toString();
 }
