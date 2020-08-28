@@ -1,3 +1,4 @@
+import { stdout } from "process";
 /*
   print (new) - core (older)
 
@@ -42,32 +43,35 @@ const regexToCheckBreackets = /{[a-z]+}/g;
   the correct string clean.
 */
 
-function clearDollarSign() {
+// Other way of represent the colors
+// function clearDollarSign() {
 
-}
+// }
 
 function clearBrackets(entries: RegExpMatchArray | null): Array<string> | undefined {
   return entries?.map((entry) => entry.slice(1, -1));
 }
 
-function checkEntryType(entry: string): void {
+function checkEntryType(entry: string): string {
   if (entry.match(regexToCheckBreackets)) {
     const result: RegExpMatchArray | null = entry.match(regexToCheckBreackets);
     let codes = findColor(clearBrackets(result));
     
-    let final = transform({
+    let final: string = transform({
       result,
       codes, 
       content: entry
     })
 
-    console.log(final.trim())
+    return final;
 
   } else if (entry.match(regexToCheckDollarNotation)) {
     console.log('Use $[color]')
   } else {
     throw new TypeError('This way is not valid!')
   }
+
+  return "";
 }
 
 function findColor(entries: Array<string> | undefined): (string | undefined)[] | undefined {
@@ -75,7 +79,14 @@ function findColor(entries: Array<string> | undefined): (string | undefined)[] |
 }
 
 export function println(message: TemplateStringsArray, ...args: any[]): void {
-  checkEntryType(message.join(''));
+  
+  let result = message.reduce((prev, current, i) => {
+    return prev + args[i - 1] + current;
+  })
+
+  // console.log(result)
+  stdout.write(checkEntryType(result) + "\n");
+  // checkEntryType(message.join(''));
 }
 
 
