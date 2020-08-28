@@ -3,7 +3,7 @@ Easiest way to print colors on the console.
 
 inspirated by: [chalk](https://github.com/chalk/chalk)
 
-## Colors Availables :art:
+## Available colours :art:
 - `reset`
 - `black`
 - `red`
