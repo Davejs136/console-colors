@@ -22,55 +22,6 @@
     lightYellow: '\x1b[1;33m'
   };
 
-  const colors = {
-    black: 'black',
-    blue: 'blue',
-    cyan: 'cyan',
-    green: 'green',
-    magenta: 'magenta',
-    purple: 'purple',
-    red: 'red',
-    reset: 'reset',
-    white: 'white',
-    yellow: 'yellow',
-
-    lightBlack: 'lightBlack',
-    lightBlue: 'lightBlue',
-    lightCyan: 'lightCyan',
-    lightGreen: 'lightGreen',
-    lightMagenta: 'lightMagenta',
-    lightRed: 'lightRed',
-    lightWhite: 'lightWhite',
-    lightYellow: 'lightYellow'
-  };
-
-
-  function add(name, code) {
-    const exist = check(name);
-
-    if (!exist) {
-      allColors[name] = code;
-      colors[name] = name;
-    } else {
-      console.log(`The color "${name}" already exist`);
-    }
-  }
-
-
-  function getColor(colors) {
-    return colors.map(color =>
-      // If the color doesnt exist then is a variable
-      check(color) ? allColors[color] : color
-    );
-  }
-
-
-  function check(name) {
-    return Object.keys(allColors).find(color => (color === name ? name : false));
-  }
-
-  export { add, getColor, check, colors };
-
 */
 
 const preffix: string = "\x1b";
