@@ -1,7 +1,7 @@
 # Console colors :tada:
 Easiest way to print colors on the console. 
 
-inspirated by: [chalk](https://github.com/chalk/chalk)
+inspired by: [chalk](https://github.com/chalk/chalk)
 
 ## Available colours :art:
 - `reset`
