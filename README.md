@@ -28,7 +28,7 @@ $ yarn add console-colors -D
 ```
 
 ## Usage
-Import console-colors in the file, just write the color into curly brackets and console-colors do all for you :muscle:
+Import console-colors in your file. Just write down the needed color into curly brackets and console-colors does all for you :muscle:
 
 ```javascript
 const { println, print } = require("console-colors")
