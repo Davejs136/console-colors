@@ -1,27 +1,4 @@
 import { stdout } from "process";
-/*
-  print (new) - core (older)
-
-  import { add, getColor, colors } from './colors';
-
-  function clean(str) {
-    return str.slice(9, -1); // Delete the "undefined" word
-  }
-
-  function print(strings, ...values) {
-    const codes = getColor(values);
-
-    const string = strings.reduce((combined, string, i) => {
-      const color = codes[i - 1];
-      return combined + color + string;
-    }, '');
-
-    console.log(clean(string));
-  }
-
-  export { print, add, colors };
-*/
-
 import { colors } from "./colors";
 import { transform } from "./helpers";
 
@@ -66,6 +43,7 @@ function checkEntryType(entry: string): string {
     return final;
 
   } else if (entry.match(regexToCheckDollarNotation)) {
+    // TODO
     console.log('Use $[color]')
   } else {
     throw new TypeError('This way is not valid!')
@@ -78,17 +56,16 @@ function findColor(entries: Array<string> | undefined): (string | undefined)[] |
   return entries?.map((entry) => colors(entry));
 }
 
-export function println(message: TemplateStringsArray, ...args: any[]): void {
-  
-  let result = message.reduce((prev, current, i) => {
-    return prev + args[i - 1] + current;
-  })
-
-  // console.log(result)
-  stdout.write(checkEntryType(result) + "\n");
-  // checkEntryType(message.join(''));
+function mergeStrings(strings: TemplateStringsArray, ...args: any[]): string {
+  return strings.reduce((prev, current, i) => prev + args[i - 1] + current);
 }
 
+export function println(message: TemplateStringsArray, ...args: any[]): void {
+  let result: string = mergeStrings(message, args);
+  stdout.write(checkEntryType(result) + "\n");
+}
 
-
-// print`${reset}Hola! ${blue}`;
+export function print(message: TemplateStringsArray, ...args: any[]): void {
+  let result: string = mergeStrings(message, args);
+  stdout.write(checkEntryType(result)); 
+}

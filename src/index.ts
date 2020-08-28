@@ -1,4 +1,4 @@
-import { println } from './print';
+import { println, print } from './print';
 
 const msg = "finally doit";
 
@@ -11,5 +11,4 @@ const lang: string = 'en';
 
 println`{green}sucess: {white}plugin intl-graphql for {red}${2+2}{white} languages {yellow}"${lang}"{reset}`;
 
-// println``
 console.log("");
