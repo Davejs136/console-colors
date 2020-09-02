@@ -1,0 +1,7 @@
+node_modules/
+
+# Test file
+test.js
+
+# folders
+dist/
