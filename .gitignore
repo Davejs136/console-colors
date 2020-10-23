@@ -5,3 +5,7 @@ test.js
 
 # folders
 dist/
+
+# lock files
+package-lock.json
+yarn.lock

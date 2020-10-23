@@ -7,7 +7,8 @@
     "start": "tsc && node dist/index.js",
     "build": "tsc",
     "dev": "concurrently \"tsc -w\" \"nodemon dist/index.js\"",
-    "prepare": "NODE_ENV=production npm run build"
+    "prepare": "NODE_ENV=production npm run build",
+    "clean": "rm -rf dist"
   },
   "keywords": [
     "color",
