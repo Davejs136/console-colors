@@ -79,7 +79,7 @@ export function exist(name: string): boolean {
 //  black: '\x1b[30m',
 
 function join(code: string | undefined): string {
-  return `\x1b[${code}${suffix}`;
+  return `${preffix}[${code}${suffix}`;
 }
 
 // Adding preffix and suffix
@@ -89,8 +89,4 @@ export function colors(name: string): string | undefined {
   if (color.has(name)) {
     return join(color.get(name));
   }
-  // console.log(color.get(name));
-  
-  // return "";
 }
-// export default Colors;
